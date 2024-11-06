@@ -35,6 +35,10 @@ public class Matrixmultiplication {
         System.out.println("Enter " + matrixA_row * matrixA_col + " digits for matrixA" );
         for(int i=0; i<matrixA_row; i++){
             for(int j=0; j<matrixA_col; j++){
+                while(!input.hasNextInt()){
+                    System.out.println("Invalid input. Please enter an integer: ");
+                    input.next();
+                }
                 matrixA[i][j] = input.nextInt();
             }
         }
@@ -42,15 +46,28 @@ public class Matrixmultiplication {
         System.out.println("Enter " + matrixB_row * matrixB_col + " digits for matrixB" );
         for(int i=0; i<matrixB_row; i++){
             for(int j=0; j<matrixB_col; j++){
+                while(!input.hasNextInt()){
+                    System.out.println("Invalid input. Please enter an integer: ");
+                }
                 matrixB[i][j] = input.nextInt();
             }
         }
 
         for(int i=0; i<matrixA.length; i++){
             for(int j=0; j<matrixB[0].length; j++){
+                matrixC[i][j] = 0;
 
-
+                for(int k=0; k<matrixA[0].length; k++){
+                    matrixC[i][j] = matrixC[i][j] + matrixA[i][j] * matrixB[k][j];
+                }
             }
+        }
+
+        for(int[] a : matrixC){
+            for(int elements : a){
+                System.out.print(elements + " ");
+            }
+            System.out.println();
         }
 
 
